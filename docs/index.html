@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; form-action https://vxswsuhyxcsklesruphy.supabase.co; base-uri 'none';">
+<title>TESER · тестовый Work-мост</title>
+<style>
+body{box-sizing:border-box;min-height:100vh;margin:0;display:grid;place-items:center;padding:24px;background:#fafaf8;color:#1c2926;font:16px system-ui,-apple-system,sans-serif}
+main{box-sizing:border-box;width:min(100%,580px);border:1px solid #dfe4e0;background:white;padding:32px;border-radius:18px}
+small{font-size:12px;color:#66756d;letter-spacing:.09em}
+h1{font-size:29px;line-height:1.2;margin:15px 0;font-weight:650}
+p{line-height:1.55;color:#4f5c56}
+label{display:block;margin:22px 0 8px;font-weight:650}
+input{width:100%;box-sizing:border-box;padding:13px;border:1px solid #acb8b0;border-radius:9px;font:inherit}
+button{display:block;margin-top:21px;border:0;border-radius:10px;background:#1d5844;color:white;font:inherit;padding:14px 20px;cursor:pointer}
+aside{margin-top:22px;border-top:1px solid #ecf0ec;padding-top:16px;color:#69766e;font-size:13px}
+</style>
+</head>
+<body>
+<main>
+<small>TESER / WORK / TEST-ONLY</small>
+<h1>Тестовое поручение</h1>
+<p>Промежуточная форма для проверочного запуска ChatGPT Work. Принимается только идентификатор синтетического события. Настоящие поручения здесь запрещены.</p>
+<form method="post" action="https://vxswsuhyxcsklesruphy.supabase.co/functions/v1/teser-work-bridge" accept-charset="UTF-8">
+<input type="hidden" name="op" value="claim">
+<label for="event">UUID события из подтверждённого входящего Gmail</label>
+<input id="event" name="event" required autocomplete="off" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" maxlength="36" placeholder="00000000-0000-4000-8000-000000000000">
+<button type="submit">Зарезервировать поручение один раз</button>
+</form>
+<aside>Нажимать только один раз. При неизвестном результате проверить состояние, а не повторять отправку. Ни ключей, ни настоящих пользовательских данных этот сайт не содержит.</aside>
+</main>
+</body></html>
