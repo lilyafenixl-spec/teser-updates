@@ -1,0 +1,1 @@
+TESER Work browser pilot only. Retry static-site publishing on 2026-11-06. No credentials or task content.
