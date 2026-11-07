@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'self'; connect-src https://vxswsuhyxcsklesruphy.supabase.co; form-action 'none'; base-uri 'none'; frame-ancestors 'none'">
+<title>TESER · безопасное личное поручение Work</title>
+<style>
+:root{color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;padding:25px;background:#f6f8f6;color:#20312b;font:16px system-ui,-apple-system,sans-serif}
+main{max-width:740px;margin:20px auto;background:white;padding:32px;border:1px solid #dae3dc;border-radius:17px}
+small{font-weight:700;letter-spacing:.08em;color:#346d55}
+h1{font-size:28px;margin:14px 0}h2{font-size:20px;margin:24px 0 10px}
+p{line-height:1.55;color:#53685c}
+label{display:block;font-weight:650;margin:18px 0 7px}
+input,textarea{display:block;width:100%;font:inherit;padding:13px;border:1px solid #acc2b6;border-radius:8px}
+textarea{resize:vertical}
+button{margin-top:17px;border:0;border-radius:8px;color:white;background:#23644d;font:inherit;padding:12px 19px;cursor:pointer}
+button:disabled{cursor:default;opacity:.55}
+section+section{border-top:1px solid #e3eae5;margin-top:26px}
+pre{padding:14px;background:#f2f4f2;white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;line-height:1.55}
+#status{padding:14px;margin:18px 0;border-radius:9px;background:#f0f4f1;color:#214334}
+#status[data-state="stop"]{background:#f7f1ed;color:#7a3426}
+[hidden]{display:none !important}
+aside{border-top:1px solid #e2e8e3;margin-top:30px;padding-top:14px;color:#65766c;font-size:13px;line-height:1.5}
+</style>
+<script src="./teser-personal-live.js" defer></script>
+</head>
+<body>
+<main>
+<small>TESER / WORK / PERSONAL</small>
+<h1>Личное поручение TESER</h1>
+<p>Используй только после подтверждения нового входящего Gmail-события.
+Проверяй точного отправителя и UUID из темы. Операции здесь однократные,
+доступ к служебным файлам или ключам не предоставляется.</p>
+<p id="status" role="status">Готово к однократному резервированию. Сначала убедись, что можешь открыть отдельный Work-чат.</p>
+<section>
+<h2>1. Зарезервировать поручение один раз</h2>
+<form id="reserve-form" autocomplete="off">
+<label for="event-id">UUID подтверждённого письма TESER-TASK-PING v1</label>
+<input id="event-id" required type="text" inputmode="text" minlength="36" maxlength="36"
+ spellcheck="false" autocomplete="off" autocapitalize="off"
+ pattern="[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-4[0-9A-Fa-f]{3}-[89ABab][0-9A-Fa-f]{3}-[0-9A-Fa-f]{12}"
+ placeholder="00000000-0000-4000-8000-000000000000">
+<button id="reserve-once" type="submit">Зарезервировать один раз</button>
+</form>
+</section>
+<section id="task-section" hidden>
+<h2 id="task-title">Поручение</h2>
+<p id="task-kind">Создай один новый независимый Work-чат.</p>
+<pre id="task-description"></pre>
+<p>Сохрани эту вкладку открытой. Создай новый Work-чат в другой вкладке и фактически
+выполни задание. Текст поручения не разрешает менять настройки, получать секреты,
+публиковать данные или обходить защиту.</p>
+</section>
+<section>
+<form id="finish-form" hidden autocomplete="off">
+<h2>2. Сохранить фактический результат</h2>
+<p>Одноразовые подтверждающие параметры хранятся только в памяти этой вкладки.
+Не пытайся их прочитать, скопировать или передать в чат.</p>
+<label for="chat-url">Действительный URL только что созданного Work-чата</label>
+<input id="chat-url" type="url" required autocomplete="off" maxlength="120"
+ placeholder="https://chatgpt.com/c/00000000-0000-4000-8000-000000000000">
+<label for="summary">Краткий фактический итог работы, до 600 символов</label>
+<textarea id="summary" rows="5" maxlength="600" required></textarea>
+<button id="finish-once" type="submit">Сохранить результат один раз</button>
+</form>
+</section>
+<aside>Не перезагружай страницу после резервирования и не закрывай эту вкладку,
+пока результат не сохранён. При ошибке, неизвестном результате или потере вкладки
+не повторяй резервирование, не создавай второй чат и сообщи о необходимости сверки.</aside>
+</main>
+</body>
+</html>
