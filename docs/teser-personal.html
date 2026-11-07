@@ -33,7 +33,7 @@ aside{margin-top:26px;border-top:1px solid #edf1ee;padding-top:15px;color:#697a7
 <section>
 <h2>1. Зарезервировать поручение</h2>
 <p>Выполняй ровно один раз для подтверждённого события. После отправки сервер
-предоставит описание, ID запуска и одноразовый код завершения.</p>
+предоставит описание и сохранит одноразовое подтверждение в защищённой cookie. Секретные значения вводить или копировать не нужно.</p>
 <form method="post" action="https://vxswsuhyxcsklesruphy.supabase.co/functions/v1/teser-personal-work-bridge" accept-charset="UTF-8">
 <input type="hidden" name="op" value="claim">
 <label for="claim_event">UUID подтверждённого TESER-TASK-PING v1</label>
@@ -47,20 +47,12 @@ aside{margin-top:26px;border-top:1px solid #edf1ee;padding-top:15px;color:#697a7
 <section>
 <h2>2. Сохранить завершённый результат</h2>
 <p>Заполняй только после фактического выполнения поручения в новом
-самостоятельном чате ChatGPT Work. Параметры run ID и finish cap возьми
-из ответа сервера после резервирования. Не выдумывай значения.</p>
+самостоятельном чате ChatGPT Work. Нужны только UUID исходного события, подлинная ссылка на новый Work-чат и итог. Используй ту же сессию браузера, в которой сервер подтвердил резервирование.</p>
 <form method="post" action="https://vxswsuhyxcsklesruphy.supabase.co/functions/v1/teser-personal-work-bridge" accept-charset="UTF-8">
 <input type="hidden" name="op" value="complete">
 <label for="complete_event">UUID исходного события</label>
 <input id="complete_event" name="event" type="text" required autocomplete="off"
  minlength="36" maxlength="36" pattern="[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-4[0-9A-Fa-f]{3}-[89ABab][0-9A-Fa-f]{3}-[0-9A-Fa-f]{12}">
-<label for="run_id">Run ID из ответа сервера</label>
-<input id="run_id" name="run_id" type="text" required autocomplete="off"
- minlength="36" maxlength="36" pattern="[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-4[0-9A-Fa-f]{3}-[89ABab][0-9A-Fa-f]{3}-[0-9A-Fa-f]{12}">
-<label for="finish_cap">Одноразовый finish cap из ответа сервера</label>
-<input id="finish_cap" name="finish_cap" type="text" required autocomplete="off"
- autocapitalize="off" spellcheck="false" minlength="43" maxlength="43"
- pattern="[A-Za-z0-9_-]{43}">
 <label for="chat_url">Настоящий URL нового Work-чата</label>
 <input id="chat_url" name="chat_url" type="url" required autocomplete="off"
  maxlength="120" placeholder="https://chatgpt.com/c/00000000-0000-4000-8000-000000000000">
@@ -70,8 +62,7 @@ aside{margin-top:26px;border-top:1px solid #edf1ee;padding-top:15px;color:#697a7
 </form>
 </section>
 <aside>Никогда не повторяй резервирование или отправку результата при
-неизвестном ответе сервера. Параметры результата вводятся только в POST-форму,
-не добавляются в URL, письма или исходный код. Только личные поручения.</aside>
+неизвестном ответе сервера. Подтверждение резервирования передаётся только в защищённой cookie браузера, не выводится в HTML и не добавляется в URL, письма или исходный код. Если cookie не сохранилась, завершение недоступно: повторно резервировать нельзя. Только личные поручения.</aside>
 </main>
 </body>
 </html>
