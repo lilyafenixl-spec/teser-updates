@@ -1,7 +1,7 @@
 {
-  "versionCode": 17,
-  "versionName": "0.5.11",
-  "apkUrl": "https://raw.githubusercontent.com/lilyafenixl-spec/teser-updates/main/apk/teser-0.5.11.apk",
-  "sha256": "73df860e0cb8305c01e3402e1cebf6f71fd4e07fc924280134d11af4d0111c22",
-  "size": 6292449
+    "versionCode":  19,
+    "versionName":  "0.5.13",
+    "apkUrl":  "https://raw.githubusercontent.com/lilyafenixl-spec/teser-updates/main/apk/teser-0.5.13.apk",
+    "sha256":  "d0accd0c960ac5da6171c1db4773d612844df32133e4ca73b9ec0982a1a38159",
+    "size":  10437316
 }
